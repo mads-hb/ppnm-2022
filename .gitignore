@@ -1,3 +1,7 @@
+## Outfiles
+# Program outputs are written to out.txt
+out.txt
+
 ## Core C code files
 # Prerequisites
 *.d
