@@ -1,3 +1,4 @@
+SRC = src
 RM = *.txt *.dll *.exe
 
 .PHONY: default clean
@@ -11,7 +12,7 @@ out.txt: main.exe
 main.exe: main.cs vector3d.dll
 	mcs -target:exe -out:$@ -reference:$(filter %dll,$^) $<
 
-vector3d.dll: vector3d.cs
+%.dll: $(SRC)/%.cs
 	mcs -target:library -out:$@ $<
 
 clean:
