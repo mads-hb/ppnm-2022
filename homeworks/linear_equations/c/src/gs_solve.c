@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
+#include <assert.h>
 
 #include "matrix.h"
 
@@ -61,6 +61,7 @@ void GS_solve(matrix* Q, matrix* R, vector* b, vector* x){
     matrix *QT = matrix_alloc(Q->size2, Q->size1);
     matrix_transpose(Q, QT);
 
+    // Create a new vector, y, that is equal to QT*b. QT is Q transposed.
     vector *y = vector_alloc(QT->size1);
     for (int i = 0; i < y->size; ++i){
         double val = 0;
@@ -70,6 +71,8 @@ void GS_solve(matrix* Q, matrix* R, vector* b, vector* x){
          vector_set(y, i, val);
     }
 
+    // Do backwards substitution on upper triangular matrix R to find solution
+    // vector y
     for (int i = y->size - 1; i >= 0; i--) {
         double sum = vector_get(y, i);
         for (int j = i + 1; j < y->size; j++) {
@@ -78,12 +81,48 @@ void GS_solve(matrix* Q, matrix* R, vector* b, vector* x){
         vector_set(y, i, sum/matrix_get(R, i, i));
     }
 
-
+    // Copy all items from vector y into vector that is visible from outside, 
+    // x.
     for (int i = 0; i < x->size; ++i){
         vector_set(x, i, vector_get(y,i));
     }
 
 
-
+    // Release memory allocated to y and Q transpose.
     matrix_free(QT); vector_free(y);
+}
+
+
+void GS_inverse(matrix* Q, matrix* R, matrix* B){
+    assert(Q->size1 == Q->size2);
+    matrix *B2 = matrix_alloc(Q->size1, Q->size1);
+
+    // Define a unit vector
+    vector *e_i = vector_alloc(Q->size1);
+        for (int j = 0; j < e_i->size; ++j){
+            vector_set(e_i, j, 0);
+        }
+    // Iterate over unit vectors 
+    for (int i = 0; i < Q->size2; ++i){
+        
+        // Set entry i in unit vector to 1 and the rest to zero.
+        vector_set(e_i, i, 1);
+        if (i>0){
+            vector_set(e_i, i-1, 0);
+        }
+        
+
+        // Solve the equation Ax=e_i. Set the i'th column equal to the solution x
+        vector *x_i = vector_alloc(Q->size1); 
+        GS_solve(Q, R, e_i, x_i);
+        for (int j = 0; j < x_i->size; ++j){
+            matrix_set(B2, i, j, vector_get(x_i, j));
+        }
+        vector_free(x_i);
+    }
+
+    // Transpose the the inverse matrix.
+    vector_free(e_i);
+    matrix_transpose(B2, B);
+    matrix_free(B2);
 }

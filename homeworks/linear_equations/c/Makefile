@@ -9,13 +9,17 @@ OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 CC = gcc
 CFLAGS = -g -Wall -O -std=c11 -I$(INC) 
 LDLIBS = -lm -lgsl
-RM = main $(OBJ)/* out*.txt
+RM = main $(OBJ)/* out*.txt *.png timing.txt
 
 .PHONY: default clean
 
-default: out.txt
+default: out.txt out.png
 
-out.txt: main
+out.png: exerciseC.txt timing.txt
+	pyxplot $<
+
+
+out.txt timing.txt: main
 	./$^ > $@
 	cat $@
 
