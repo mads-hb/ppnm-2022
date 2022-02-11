@@ -1,0 +1,10 @@
+Testing x == x ...  ...passed
+Testing x == y ...  ...passed
+Testing x != z ...  ...passed
+Testing x.Equals(new Vector3d(1,0,0)) ...  ...passed
+Testing x != new Vector3d(1,0,0) ...  ...passed
+Testing x.magnitude() == 1 ...  ...passed
+Testing y.magnitude() == 1 ...  ...passed
+Testing x.dot_product(y) == 0 ...  ...passed
+Testing x.dot_product(x) == 1 ...  ...passed
+all tests passed :)
