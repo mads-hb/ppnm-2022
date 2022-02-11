@@ -65,13 +65,9 @@ static class MainProgram{
         else {Console.Write("...FAILED\n"); return_code += 1;}
 
         Console.Write("Testing x.dot_product(x) == 1 ... ");
-        test = x.dot_product(y) == 1;
+        test = x.dot_product(x) == 1;
         if(test) Console.Write(" ...passed\n");
         else {Console.Write("...FAILED\n"); return_code += 1;}
-
-        Console.WriteLine("{0}", x.dot_product(x));
-
-
 
 
         // Finish tests
