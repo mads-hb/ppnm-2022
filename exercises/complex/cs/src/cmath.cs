@@ -1,6 +1,8 @@
-// (C) 2020 Dmitri Fedorov; License: GNU GPL v3+; no warranty.
+/* (C) 2020 Dmitri Fedorov; License: GNU GPL v3+; no warranty. */
 using System;
-public static class cmath{
+public static class cmath{ /* complex math */
+
+public static readonly complex I = new complex(0,1);
 
 // xtenstions
 public static bool approx
@@ -20,8 +22,6 @@ public static void print(this complex z, string s)
 	{System.Console.WriteLine(s+z);}
 public static void printf(this complex z,string s)
 	{System.Console.WriteLine(s,z.Re,z.Im);}
-
-public static readonly complex I = new complex(0,1);
 
 public static double  exp(double x) {return Math.Exp(x);}
 public static complex exp(complex z){
@@ -64,5 +64,8 @@ public static complex pow (this complex a, double x){
 public static complex pow (this complex a, complex b){
 	return exp(b*log(a)); }
 
-public static complex sinh (double a){return -cmath.I*cmath.sin(I*a);}
+public static complex sinh (double a){return -I*cmath.sin(I*a);}
+public static complex sinh (complex a){return -I*cmath.sin(I*a);}
+public static complex cosh (double a){return cmath.cos(I*a);}
+public static complex cosh (complex a){return cmath.cos(I*a);}
 }// cmath
