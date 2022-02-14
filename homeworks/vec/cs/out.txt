@@ -3,8 +3,15 @@ Testing x == y ...  ...passed
 Testing x != z ...  ...passed
 Testing x.Equals(new Vector3d(1,0,0)) ...  ...passed
 Testing x != new Vector3d(1,0,0) ...  ...passed
-Testing x.magnitude() == 1 ...  ...passed
-Testing y.magnitude() == 1 ...  ...passed
-Testing x.dot_product(y) == 0 ...  ...passed
-Testing x.dot_product(x) == 1 ...  ...passed
+Testing x.norm() == 1 ...  ...passed
+Testing y.norm() == 1 ...  ...passed
+Testing x.dot(y) == 0 ...  ...passed
+Testing x.dot(x) == 1 ...  ...passed
+Testing unit_xy.dot(unit_xy) approx 1 ...  ...passed
+Testing x.cross(y).approx(z) ...  ...passed
+Testing x.cross(x).approx(null_vector) ...  ...passed
+Testing x.approx(a) ...  ...passed
+Testing x.approx(y) ...  ...passed
+Testing (x*2).approx(x+x) ...  ...passed
+Testing (x-x).approx(null_vector) ...  ...passed
 all tests passed :)

@@ -1,5 +1,5 @@
 SRC = src
-RM = *.txt *.dll *.exe
+RM = *.dll *.exe
 
 .PHONY: default clean
 
@@ -9,11 +9,11 @@ out.txt: main.exe
 	mono $< > $@
 	cat $@
 
-main.exe: main.cs vector3d.dll
+main.exe: main.cs vec.dll
 	mcs -target:exe -out:$@ -reference:$(filter %dll,$^) $<
 
-%.dll: $(SRC)/%.cs
-	mcs -target:library -out:$@ $<
+vec.dll: $(wildcard $(SRC)/*.cs)
+	mcs -target:library -out:$@ $^
 
 clean:
-	rm $(RM)
+	rm -rf $(RM)

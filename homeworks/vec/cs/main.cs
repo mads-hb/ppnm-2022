@@ -3,19 +3,19 @@ using static System.Math;
 
 static class MainProgram{
 
+    private static bool is_close(double a, double b){
+        double rtol=1e-5;
+        double atol=1e-8;
+        return (Math.Abs(a - b) < atol) || (Math.Abs(a-b)/(Math.Abs(a) + Math.Abs(b)) < rtol);
+    }
+
     static int Main(){
-        Vector3d x = new Vector3d(1,0,0);
-        Vector3d y = new Vector3d(0,1,0);
-        Vector3d z = new Vector3d(0,0,1);
-
-
         int return_code=0;
         bool test;
-        var rnd=new Random();
-        int n=9;
-        Vector3d[] zs = new Vector3d[n];
-        for(int i = 0; i < n; i++)
-            zs[i] = new Vector3d(2*rnd.NextDouble()-1,2*rnd.NextDouble()-1, 2*rnd.NextDouble()-1);
+
+        Vector3d x = Vector3d.unit_x;
+        Vector3d y = Vector3d.unit_y;
+        Vector3d z = Vector3d.unit_z;
 
         Console.Write("Testing x == x ... ");
         test = x == x;
@@ -47,25 +47,63 @@ static class MainProgram{
         else {Console.Write("...FAILED\n"); return_code += 1;}
 
 
-        Console.Write("Testing x.magnitude() == 1 ... ");
-        test = x.magnitude() == 1;
+        Console.Write("Testing x.norm() == 1 ... ");
+        test = x.norm() == 1;
         if(test) Console.Write(" ...passed\n");
         else {Console.Write("...FAILED\n"); return_code += 1;}
 
 
-        Console.Write("Testing y.magnitude() == 1 ... ");
-        test = y.magnitude() == 1;
+        Console.Write("Testing y.norm() == 1 ... ");
+        test = y.norm() == 1;
         if(test) Console.Write(" ...passed\n");
         else {Console.Write("...FAILED\n"); return_code += 1;}
 
 
-        Console.Write("Testing x.dot_product(y) == 0 ... ");
-        test = x.dot_product(y) == 0;
+        Console.Write("Testing x.dot(y) == 0 ... ");
+        test = x.dot(y) == 0;
         if(test) Console.Write(" ...passed\n");
         else {Console.Write("...FAILED\n"); return_code += 1;}
 
-        Console.Write("Testing x.dot_product(x) == 1 ... ");
-        test = x.dot_product(x) == 1;
+        Console.Write("Testing x.dot(x) == 1 ... ");
+        test = x.dot(x) == 1;
+        if(test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+
+        Vector3d unit_xy = (x + y) / Sqrt(2);
+        Console.Write("Testing unit_xy.dot(unit_xy) approx 1 ... ");
+        test = is_close(unit_xy.dot(unit_xy), 1);
+        if(test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+        Console.Write("Testing x.cross(y).approx(z) ... ");
+        test = x.cross(y).approx(z);
+        if(test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+        Console.Write("Testing x.cross(x).approx(null_vector) ... ");
+        test = x.cross(x).approx(Vector3d.null_vector);
+        if(test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+        Console.Write("Testing x.approx(a) ... ");
+        test = x.approx(x);
+        if(test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+        Console.Write("Testing x.approx(y) ... ");
+        test = x.approx(y);
+        if(!test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+        Console.Write("Testing (x*2).approx(x+x) ... ");
+        test = (2*x).approx(x+x);
+        if(test) Console.Write(" ...passed\n");
+        else {Console.Write("...FAILED\n"); return_code += 1;}
+
+
+        Console.Write("Testing (x-x).approx(null_vector) ... ");
+        test = (x-x).approx(Vector3d.null_vector);
         if(test) Console.Write(" ...passed\n");
         else {Console.Write("...FAILED\n"); return_code += 1;}
 
