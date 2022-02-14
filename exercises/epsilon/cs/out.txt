@@ -1,0 +1,28 @@
+
+***Test starting***
+
+My max int i = 2147483647
+Compare to int.MaxValue 2147483647
+My min int i = -2147483648
+Compare to int.MinValue -2147483648
+Alternatively, max int is min - 1 = 2147483647
+
+***************
+
+The double precision is 2.22044604925031E-16. Pow(2,-52) = 2.22044604925031E-16
+The single precision is 1.192093E-07. Pow(2,-23) = 1.19209289550781E-07
+
+***************
+
+sumA-1 = 0.000000e+000 should be 1.110223e-010
+sumB-1 = 1.110223e-010 should be 1.110223e-010
+
+***************
+
+Implemented approx method. Let's test it
+approx(1,1) is True
+approx(1,2) is False
+approx(1,0.5) is False
+approx(0,Pow(2,-52)) is True
+approx(0,Pow(2,-52)/2) is True
+approx(100,100+Pow(2,-23)) is True
