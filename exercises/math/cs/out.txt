@@ -1,0 +1,6 @@
+sqrt(2) = 1.4142135623731
+sqrt2*sqrt2 = 2 (should be equal 2)
+Exp(PI) = 23.1406926327793
+Log(Exp(PI)) = 3.14159265358979 (should be equal PI)
+Pow(PI, e) = 22.459157718361
+Log(Pow(PI, e), PI) = 2.71828182845905 (should be equal e)
