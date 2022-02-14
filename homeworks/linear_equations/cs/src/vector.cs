@@ -16,15 +16,26 @@ public partial class Vector{
     public Vector(int n){data=new double[n];}
     public Vector(double[] a){data=a;}
 
+    // Random matrix
+    public static Vector RandomVector(int n){
+        double maximum = 10;
+        double minimum = -10;
+        Random random = new Random();
+        Vector v = new Vector(n);
+        for(int j=0;j<v.size;j++)
+            v[j]=random.NextDouble() * (maximum - minimum) + minimum;
+        return v;
+    }
+
 
     public static implicit operator Vector (double[] a){ return new Vector(a); }
     public static implicit operator double[] (Vector v){ return v.data; }
 
-    public void print(string s="",string format="{0,10:g3} "){
+    public void print(string s="\n",string format="{0,10:g3} "){
         this.fprint(Console.Out,s,format);
         }
 
-    public void fprint(TextWriter file,string s="",string format="{0,10:g3} "){
+    public void fprint(TextWriter file,string s="\n",string format="{0,10:g3} "){
         file.Write(s);
         for(int i=0;i<size;i++) file.Write(format,this[i]);
         file.Write("\n");

@@ -11,6 +11,18 @@ public partial class Matrix{
         for(int j=0;j<size2;j++) data[j]=new double[size1];
         }
 
+    // Random matrix
+    public static Matrix RandomMatrix(int n, int m){
+        double maximum = 10;
+        double minimum = -10;
+        Random random = new Random();
+        Matrix mat = new Matrix(n, m);
+        for(int j=0;j<mat.size2;j++)
+            for(int i=0;i<mat.size1;i++)
+                mat[i,j]=random.NextDouble() * (maximum - minimum) + minimum;
+        return mat;
+    }
+
     public double this[int r,int c]{
         get{return data[c][r];}
         set{data[c][r]=value;}

@@ -1,15 +1,18 @@
 SRC = src
 SRC_FILES = $(wildcard $(SRC)/*.cs)
-RM = *.txt *.dll *.exe
+RM = *.dll *.exe timing.txt
 
 .PHONY: default clean
 
-default: out.txt
+default: out.png
 
-out.txt: main.exe
+out.png: exerciseC.txt timing.txt
+	pyxplot $<
+
+
+timing.txt out.txt: main.exe
 	mono $< > $@
 	cat $@
-
 
 main.exe: main.cs matrix.dll
 	mcs -target:exe -out:$@ -reference:$(filter %dll,$^) $<
@@ -20,4 +23,4 @@ matrix.dll: $(SRC_FILES)
 
 
 clean:
-	rm $(RM)
+	rm -rf $(RM)
