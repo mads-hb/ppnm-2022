@@ -15,7 +15,9 @@ public double Im {get{return im;}}
 // constructors
 public complex(double x){this.re = x; this.im = 0;}
 public complex(double x, double y){ this.re=x; this.im=y; }
+// cast
 public static implicit operator complex(double x){return new complex(x);}
+public static implicit operator complex(int x){return new complex((double)x);}
 
 // useful numbers
 public static readonly complex Zero = new complex(0,0);
