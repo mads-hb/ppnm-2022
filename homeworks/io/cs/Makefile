@@ -15,7 +15,6 @@ outA.txt: mainA.exe
 # This method doesn't seem to work.
 # outB.txt: mainB.exe
 # 	mono $< $(cat $(INPUT_DATA)) > $@
-
 outB.txt: mainB.exe
 	mono $< 1 2 3 4 5 > $@
 
@@ -24,6 +23,8 @@ outB.txt: mainB.exe
 outC.txt: mainC.exe
 	mono $< -input:$(INPUT_DATA) -output:$@
 
+
+# Compile main. Set entrypoint according to exe filename.
 main%.exe: main.cs
 	mcs -out:$@ -target:exe $< -main:Exercise$(subst main,,$(basename $@))
 
