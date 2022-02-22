@@ -1,0 +1,65 @@
+Length of list is 1. Capacity of list is 8.
+[129.24 ]
+
+Length of list is 2. Capacity of list is 8.
+[129.24 0.248 ]
+
+Length of list is 3. Capacity of list is 8.
+[129.24 0.248 4.847 ]
+
+Length of list is 4. Capacity of list is 8.
+[129.24 0.248 4.847 88.6 ]
+
+Length of list is 5. Capacity of list is 8.
+[129.24 0.248 4.847 88.6 33.745 ]
+
+Length of list is 6. Capacity of list is 8.
+[129.24 0.248 4.847 88.6 33.745 7.78 ]
+
+Length of list is 7. Capacity of list is 8.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 ]
+
+Length of list is 8. Capacity of list is 8.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 99.811 ]
+
+Length of list is 9. Capacity of list is 16.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 99.811 6.723 ]
+
+Length of list is 10. Capacity of list is 16.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 99.811 6.723 -1.33 ]
+
+Length of list is 11. Capacity of list is 16.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 99.811 6.723 -1.33 96.3 ]
+
+Length of list is 12. Capacity of list is 16.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+
+Length of list is 12. Capacity of list is 16.
+[129.24 0.248 4.847 88.6 33.745 7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+************************************
+Filled the list. List size: 12
+
+Length of list is 11. Capacity of list is 16.
+[0.248 4.847 88.6 33.745 7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 10. Capacity of list is 16.
+[4.847 88.6 33.745 7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 9. Capacity of list is 16.
+[88.6 33.745 7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 8. Capacity of list is 8.
+[33.745 7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 7. Capacity of list is 8.
+[7.78 30.39 99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 6. Capacity of list is 8.
+[30.39 99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 5. Capacity of list is 8.
+[99.811 6.723 -1.33 96.3 2.23 ]
+Length of list is 4. Capacity of list is 8.
+[6.723 -1.33 96.3 2.23 ]
+Length of list is 3. Capacity of list is 8.
+[-1.33 96.3 2.23 ]
+Length of list is 2. Capacity of list is 8.
+[96.3 2.23 ]
+Length of list is 1. Capacity of list is 8.
+[2.23 ]
+Length of list is 0. Capacity of list is 8.
+[]
