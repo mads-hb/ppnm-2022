@@ -13,9 +13,11 @@ public static class MainProgram{
     }
 
     public static int Main(){
-        System.Func<double, double, double> f = delegate(double x, double k) {return Sin(k*x);};
+        int k = 0;
+        System.Func<double, double> f = delegate(double x) {return Sin(k*x);};
         for (int i=1; i<=3; i++) {
-            make_table(x => f(x, 1), 0, PI, 0.01);
+            k = i;
+            make_table(f, 0, PI, 0.1);
             WriteLine("\n\n\n");
         }
         return 0;
