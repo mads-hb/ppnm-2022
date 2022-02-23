@@ -1,0 +1,27 @@
+Compute the harmonic sum on the interval [1, 1000000000[:
+The sum using 1 threads is 21.300 and it took 2964ms.
+The sum using 2 threads is 21.300 and it took 1467ms.
+The sum using 3 threads is 21.300 and it took 978ms.
+The sum using 4 threads is 21.300 and it took 735ms.
+The sum using 5 threads is 21.300 and it took 622ms.
+The sum using 6 threads is 21.300 and it took 521ms.
+The sum using 7 threads is 21.300 and it took 447ms.
+The sum using 8 threads is 21.300 and it took 390ms.
+The sum using 9 threads is 21.300 and it took 505ms.
+The sum using 10 threads is 21.300 and it took 472ms.
+The sum using 11 threads is 21.300 and it took 460ms.
+The sum using 12 threads is 21.300 and it took 440ms.
+The sum using 13 threads is 21.300 and it took 427ms.
+The sum using 14 threads is 21.300 and it took 420ms.
+The sum using 15 threads is 21.300 and it took 415ms.
+The sum using 16 threads is 21.300 and it took 393ms.
+The sum using 17 threads is 21.300 and it took 451ms.
+The sum using 18 threads is 21.300 and it took 410ms.
+The sum using 19 threads is 21.300 and it took 418ms.
+The sum using 20 threads is 21.300 and it took 416ms.
+
+Clearly, the time it takes to compute the super is shorter when we use more than 1 thread. 
+However, we cannot use infinitely many threads to go faster. 
+The results show that after 11 threads we do not gain any performance improvement. 
+At this point the time it takes to spin up a thread is longer than the time 
+it takes to just compute the harmonic sum on the interval
