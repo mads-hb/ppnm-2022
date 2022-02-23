@@ -78,7 +78,7 @@ public static class MainProgram{
             sw.Stop();
             System.Console.WriteLine($"The sum using {i} threads is {sum:F3} and it took {sw.ElapsedMilliseconds}ms.");
         }
-        System.Console.WriteLine("\nClearly, the time it takes to compute the super is shorter when we use more than 1 thread. ");
+        System.Console.WriteLine("\nClearly, the time it takes to compute the harmonic sum is shorter when we use more than 1 thread. ");
         System.Console.WriteLine("However, we cannot use infinitely many threads to go faster. "); 
         System.Console.WriteLine("The results show that after 11 threads we do not gain any performance improvement. ");
         System.Console.WriteLine("At this point the time it takes to spin up a thread is longer than the time "); 
