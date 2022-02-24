@@ -1,0 +1,21 @@
+Compute the harmonic sum on the interval [1, 1000000000[:
+The sum using 1 threads is 21.300482 and took 0.970474s
+The sum using 2 threads is 21.300482 and took 0.499512s
+The sum using 3 threads is 21.300482 and took 0.363668s
+The sum using 4 threads is 21.300481 and took 0.408729s
+The sum using 5 threads is 21.300481 and took 0.325614s
+The sum using 6 threads is 21.300481 and took 0.349260s
+The sum using 7 threads is 21.300481 and took 0.301845s
+The sum using 8 threads is 21.300481 and took 0.266570s
+The sum using 9 threads is 21.300482 and took 0.320834s
+The sum using 10 threads is 21.300481 and took 0.287408s
+The sum using 11 threads is 21.300481 and took 0.288623s
+The sum using 12 threads is 21.300481 and took 0.289172s
+The sum using 13 threads is 21.300481 and took 0.281786s
+The sum using 14 threads is 21.300481 and took 0.287542s
+The sum using 15 threads is 21.300481 and took 0.279072s
+The sum using 16 threads is 21.300481 and took 0.274321s
+The sum using 17 threads is 21.300481 and took 0.276841s
+The sum using 18 threads is 21.300481 and took 0.283864s
+The sum using 19 threads is 21.300481 and took 0.268872s
+The sum using 20 threads is 21.300481 and took 0.272059s
