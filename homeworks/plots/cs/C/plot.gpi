@@ -1,0 +1,16 @@
+set terminal png;
+set output "out.png";
+set xlabel "$x$";
+set ylabel "$y$";
+set tics out;
+set title "Complex Gamma Function, $\Gamma (|z|)$";
+
+set numerics complex;
+set nokey;
+set size 8 square;
+set samples grid 100x100 interpolate inverseSquare
+
+set c1range [*:*] renormalise noreverse
+set colormap hsb(c1, c1*0.7+0.3,1)
+
+plot  "out.txt" using 1:2:3 with colormap title "Complex";

@@ -1,0 +1,12 @@
+set terminal png;
+set output "out.png";
+set xlabel "$x$";
+set ylabel "$y$";
+set tics out;
+set title "Error Function";
+set key left top;
+set yrange [-0.5:1.5];
+
+
+plot "out.txt" using 1:2 with line title "Function", \
+"tabulated.txt" using 1:2 with points pointtype 2 title "Tabulated data";

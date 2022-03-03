@@ -1,0 +1,10 @@
+set terminal png;
+set output "out2.png";
+set xlabel "$x$";
+set ylabel "$y$";
+set tics out;
+set title "Log Gamma Function";
+set key right bottom;
+
+
+plot "out2.txt" using 1:2 with line title "Function";
