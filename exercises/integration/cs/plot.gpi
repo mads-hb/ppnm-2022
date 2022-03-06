@@ -1,0 +1,11 @@
+set terminal png;
+set output "out.png";
+set xlabel "$x$";
+set ylabel "$y$";
+set tics out;
+set title "Error Function";
+set key left top;
+set yrange [-3:3];
+
+
+plot "err.txt" using 1:2 with line title "Function";
