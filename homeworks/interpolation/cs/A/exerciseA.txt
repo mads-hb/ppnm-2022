@@ -1,0 +1,16 @@
+set terminal png
+set output "exerciseAPlot.png"
+
+set key out;
+set ticks out;
+set pointsize 1;
+set width 8;
+
+set title "Linear Interpolation";
+set xlabel "$x$";
+set ylabel "$y$";
+
+plot \
+"xy_data.txt" using 1:2 with points pointtype 2 title "Tabulated data",\
+"out1.txt" using 1:2 with line linetype 1 color black title "Linear interpolation", \
+"out1.txt" using 1:3 with line linetype 2 color black title "Linear spline integral"
