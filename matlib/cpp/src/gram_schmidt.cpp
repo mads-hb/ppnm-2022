@@ -8,6 +8,7 @@
 
 
 void gram_schmidt::decompose(Matrix *A, Matrix *R) {
+    assert(A->get_height()>=A->get_length());
     // Create matrix Q
     auto Q = std::unique_ptr<Matrix>(new Matrix(A->get_length(), A->get_height()));
 
@@ -55,6 +56,8 @@ void gram_schmidt::decompose(Matrix *A, Matrix *R) {
 }
 
 void gram_schmidt::solve(Matrix *Q, Matrix *R, ColumnVector *b, ColumnVector *x) {
+    // Require a square matrix
+    assert(Q->get_height() == Q->get_length());
     // We know that Rx=QT*b=y. This can be solved by backwards substitution since
     // R is upper triangular.
     auto QT = Q->transpose();
