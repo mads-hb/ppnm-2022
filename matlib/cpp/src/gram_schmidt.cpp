@@ -1,6 +1,3 @@
-//
-// Created by mads on 15/03/2022.
-//
 #include "cmath"
 #include "memory"
 #include "gram_schmidt.hpp"
