@@ -11,8 +11,7 @@ out.png: exerciseC.txt timing.txt
 
 
 timing.txt out.txt: main.exe
-	mono $< > $@
-	cat $@
+	mono $<
 
 main.exe: main.cs matrix.dll
 	mcs -target:exe -out:$@ -reference:$(filter %dll,$^) $<
