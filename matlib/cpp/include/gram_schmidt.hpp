@@ -35,6 +35,14 @@ namespace gram_schmidt {
      * @param B A square matrix of size n. On exit, it is replaced with the inverse of A.
      */
     void inverse(Matrix* Q, Matrix* R, Matrix* B);
+
+
+    /**
+     * Get the inverse of a matrix
+     * @param A The matrix to find inverse of
+     * @return The inverse matrix.
+     */
+    Matrix* inverse(Matrix *A);
 }
 
 #endif //MATLIB_GRAM_SCHMIDT_HPP

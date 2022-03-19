@@ -115,3 +115,12 @@ void gram_schmidt::inverse(Matrix *Q, Matrix *R, Matrix *B) {
         }
     }
 }
+
+
+Matrix* gram_schmidt::inverse(Matrix *A){
+    auto *R = new Matrix(A->get_length(), A->get_length());
+    gram_schmidt::decompose(A, R);
+    auto *B = new Matrix(A->get_height(), A->get_length());
+    gram_schmidt::inverse(A, R, B);
+    return B;
+}
