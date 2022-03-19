@@ -1,16 +1,12 @@
 SRC = src
 SRC_FILES = $(wildcard $(SRC)/*.cs)
-RM = *.dll *.exe timing.txt
+RM = *.dll *.exe
 
 .PHONY: default clean
 
-default: out.png
+default: out.txt
 
-out.png: exerciseC.txt timing.txt
-	pyxplot $<
-
-
-timing.txt out.txt: main.exe
+out.txt: main.exe
 	mono $< > $@
 	cat $@
 

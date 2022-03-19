@@ -1,0 +1,8 @@
+--------------------- Solving exercise C: ---------------------
+The lambda parameter is estimated to be 0.172070796448846 +/- 0.00402918677701603.
+The half-life is then 4.02826740426001 +/- 0.0965870405028024 days
+The modern value is 3.6319 days according to wikipedia.
+The covariance matrix is:
+
+   0.00101  -0.000108 
+ -0.000108   1.62e-05 

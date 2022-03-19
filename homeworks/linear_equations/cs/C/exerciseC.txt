@@ -1,0 +1,15 @@
+set terminal png
+set output "exerciseCPlot.png"
+
+set key out;
+set ticks out;
+set pointsize 1;
+set width 8;
+
+set title "Run time of GS decomp.";
+set xlabel "$N$";
+set ylabel "$t [s]$";
+
+plot \
+"timing.txt" using 1:2 with points pointtype 2 title "Tabulated data",\
+"timing.txt" using 1:3 with line linetype 1 color black title "$N^3$ for comparison"

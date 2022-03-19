@@ -1,0 +1,4 @@
+--------------------- Solving exercise A: ---------------------
+The lambda parameter is estimated to be 0.172070796448846.
+The half-life is then 4.02826740426001 days.
+The modern value is 3.6319 days.
