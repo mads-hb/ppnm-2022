@@ -99,6 +99,13 @@ public:
     Matrix operator * (Matrix &other);
 
     /**
+     * Compare two matrices and check if their entries are equal.
+     * @param other Matrix to compare against.
+     * @return A bool indicating whether the matrices have equal entries.
+     */
+    bool operator == (Matrix &other);
+
+    /**
      * Return a transposed version of the matrix.
      * @return Transposed version of this matrix
      */

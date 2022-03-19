@@ -130,6 +130,21 @@ Matrix Matrix::copy() {
     return res;
 }
 
+bool Matrix::operator==(Matrix &other) {
+    if (get_height() != other.get_height() || get_length() != other.get_length()){
+        return false;
+    } else {
+        for (int i = 0; i < size1; ++i) {
+            for (int j = 0; j < size2; ++j) {
+                if (get(i, j) != other.get(i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+
 
 void RowVector::set(int i, double value) {
     return Matrix::set(0, i, value);
