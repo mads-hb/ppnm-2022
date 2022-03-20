@@ -94,4 +94,71 @@ SUITE(GramSchmidtTest) {
             }
         }
     }
+
+    TEST(TestSolve){
+        int N = 10;
+        Matrix A = Matrix::random_matrix(N, N);
+        auto *R = new Matrix(N, N);
+        auto Q = A.copy();
+        gram_schmidt::decompose(&Q, R);
+
+        ColumnVector b = ColumnVector::random_vector(N);
+        ColumnVector *x = new ColumnVector(N);
+
+        gram_schmidt::solve(&Q, R, &b, x);
+
+        Matrix b2 = (A * (*x));
+        CHECK(b.get_length() == b2.get_length() && b.get_height() == b2.get_height());
+        ColumnVector v_b2 = b2.get_column(0);
+        for (int i = 0; i < b.get_height(); ++i) {
+            CHECK_CLOSE(b.get(i), v_b2.get(i), 1e8);
+        }
+    }
+
+    TEST_FIXTURE(MatrixFixture, TestInverse){
+        Matrix *B = gram_schmidt::inverse(A);
+        CHECK_EQUAL(B->get(0,0), -1.5);
+        CHECK_EQUAL(B->get(0,1), 0.5);
+        CHECK_EQUAL(B->get(1,0), 1);
+        CHECK_EQUAL(B->get(1,1), 0);
+    }
+
+    TEST(TestInverseShape){
+        Matrix A = Matrix::random_matrix(10, 10);
+        Matrix *B = gram_schmidt::inverse(&A);
+        CHECK(B->get_length() == 10 && B->get_height());
+    }
+
+    TEST(TestInverseProduct){
+        int N = 10;
+        auto A = Matrix::random_matrix(N, N);
+        auto Q = A.copy();
+        Matrix B(N);
+        auto *R = new Matrix(N);
+        gram_schmidt::decompose(&Q, R);
+        gram_schmidt::inverse(&Q, R, &B);
+        Matrix C = (B*A);
+
+        // Check product is identity;
+        for (int i = 0; i < R->get_height(); ++i) {
+            for (int j = 0; j < R->get_length(); ++j) {
+                if (j == i) {
+                    // Upper traingular part
+                            CHECK_CLOSE(C.get(i, j), 1, 1e8);
+                } else {
+                            CHECK_CLOSE(C.get(i, j), 0, 1e8);
+                }
+            }
+        }
+
+        // Check commutation
+        Matrix C2 = A*B;
+        for (int i = 0; i < R->get_height(); ++i) {
+            for (int j = 0; j < R->get_length(); ++j) {
+                CHECK_CLOSE(C2.get(i,j), C.get(i,j), 1e8);
+            }
+        }
+    }
+
+
 }
