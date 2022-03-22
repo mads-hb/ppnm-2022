@@ -206,4 +206,4 @@ public:
     static ColumnVector random_vector(int n);
 };
 
-#endif MATLIB_MATRIX_HPP
+#endif //MATLIB_MATRIX_HPP
