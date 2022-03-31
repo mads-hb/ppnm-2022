@@ -1,0 +1,2 @@
+The solution for theta(10) and omega(10) is:    0.0178       1.57 
+This agrees quite well with the figure shown on the scipy documentation page.
