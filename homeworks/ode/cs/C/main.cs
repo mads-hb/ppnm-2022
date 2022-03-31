@@ -71,7 +71,10 @@ static class MainProgram{
         GenericList<double> xlist;
         GenericList<vector> ylist;
         (xlist, ylist) = ODE.driver(three_body, 0, y0, 10);
-        
+        WriteLine("Using the parameters given in the wikipedia page I manage to create an " + 
+            "animation showing how the three body system evolves over time. This can be seen " 
+            + "in the animation three_body.gif.");
+
         using (var writer = new System.IO.StreamWriter("diff.txt")){
             for (int i = 0; i < xlist.size; i++){
                 writer.Write($"{xlist.get(i)} \t");

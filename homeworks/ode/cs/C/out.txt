@@ -1,0 +1,1 @@
+Using the parameters given in the wikipedia page I manage to create an animation showing how the three body system evolves over time. This can be seen in the animation three_body.gif.

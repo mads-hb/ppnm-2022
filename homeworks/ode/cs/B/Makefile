@@ -4,10 +4,10 @@ RM = *.dll *.exe
 
 .PHONY: default clean
 
-default: three_body.gif
+default: out.png
 
-three_body.gif: gif.gpi diff.txt
-	gnuplot $<
+out.png: plot.gpi diff.txt
+	pyxplot $<
 
 diff.txt out.txt: main.exe
 	mono $< > out.txt
