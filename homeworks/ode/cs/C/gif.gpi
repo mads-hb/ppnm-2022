@@ -1,0 +1,20 @@
+set term gif animate
+set output 'three_body.gif'
+
+# define fixed axis-ranges
+set xrange [-1.5:1.5]
+set yrange [-1:1]
+
+# filename and n=number of lines of your data 
+filedata = 'diff.txt'
+n = system(sprintf('cat %s | wc -l', filedata))
+
+do for [j=1:n] {
+    set title 'Step: '.j
+    plot filedata u 2:3 every ::j-80::j w l lw 2 title "", \
+          filedata u 2:3 every ::j::j w p pt 7 ps 2 title "Object 1", \
+          filedata u 8:9 every ::j-80::j w l lw 2 title "", \
+          filedata u 8:9 every ::j::j w p pt 7 ps 2 title "Object 2", \
+          filedata u 14:15 every ::j-80::j w l lw 2 title "", \
+          filedata u 14:15 every ::j::j w p pt 7 ps 2 title "Object 3";
+}
