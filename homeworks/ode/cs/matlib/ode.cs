@@ -42,17 +42,28 @@ public static class ODE {
             // Make a step with the rekstep12 routine
             (vector yh, vector err) = rkstep12(f, a, y, h);
 
-            double tol = Max(acc,yh.norm()*eps) * Sqrt(h/(b-a));
-            double error = err.norm();
-            if(error<=tol){
-                // accept step
+
+            vector tol = new vector(yh.size);
+            for (int i = 0; i < yh.size; i++){
+                tol[i] = Max(acc, Abs(yh[i]) * eps) * Sqrt(h / (b-a));
+            }
+
+            bool ok = true;
+            for(int j=0;j<tol.size;j++) {
+                ok = (ok && err[j]<tol[j]);
+            }
+            if (ok){
                 a+=h; 
-                y=yh; 
+                y=yh;
                 xs.push(a); 
                 ys.push(y);
             }
-
-            h *= Min( Pow(tol/error,0.25)*0.95 , 2); // reajust stepsize
+            double factor = tol[0]/Abs(err[0]);
+            for(int j=1;j<tol.size;j++) {
+                factor = Min(factor,tol[j]/Abs(err[j]));
+            }
+            h *= Min( Pow(factor, 0.25) * 0.95, 2);  // reajust stepsize
+            
         }
 
         return (xs, ys);
