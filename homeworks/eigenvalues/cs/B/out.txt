@@ -1,0 +1,3 @@
+Test for convergence when increasing rmax. Check rmax.png
+Test for convergence when increasing N. Check npoints.png
+Draw wavefunctions and analytical wavefunctions from Griffiths. Check exerciseBplot.png

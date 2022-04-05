@@ -1,0 +1,17 @@
+set terminal png
+set output "exerciseCPlot.png"
+
+set key out;
+set ticks out;
+set pointsize 1;
+set width 8;
+
+set title "Run time of EV decomp.";
+set xlabel "$N$";
+set ylabel "$t [s]$";
+
+plot \
+"timing_opt_False.txt" using 1:2 with points pointtype 2 color black title "Measured",\
+"fit_opt_False.txt" using 1:2 with line linetype 1 color black title "3rd order least squares fit",\
+"timing_opt_True.txt" using 1:2 with points pointtype 2 color red title "Optimized",\
+"fit_opt_True.txt" using 1:2 with line linetype 1 color red title "3rd order least squares fit";

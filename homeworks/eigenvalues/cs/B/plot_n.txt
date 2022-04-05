@@ -1,0 +1,16 @@
+set terminal png
+set output "npoints.png"
+
+set key out;
+set ticks out;
+set pointsize 1;
+set width 8;
+
+set title "Energy";
+set xlabel "$x$";
+set ylabel "$$";
+
+plot \
+"npoints.txt" using 1:2 with line linetype 1 color black title "Energy 1",\
+"npoints.txt" using 1:3 with line linetype 1 color blue title "Energy 2",\
+"npoints.txt" using 1:4 with line linetype 1 color red title "Energy 3";

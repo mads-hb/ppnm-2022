@@ -1,0 +1,19 @@
+set terminal png
+set output "exerciseBPlot.png"
+
+set key out;
+set ticks out;
+set pointsize 1;
+set width 8;
+
+set title "Eigenfunctions";
+set xlabel "$x$";
+set ylabel "$$";
+
+plot \
+"eigenfunc.txt" using 1:2 with line linetype 1 color black title "Eigenfunc 1",\
+"eigenfunc.txt" using 1:3 with line linetype 1 color blue title "Eigenfunc 2",\
+"eigenfunc.txt" using 1:4 with line linetype 1 color red title "Eigenfunc 3",\
+"analytical.txt" using 1:2 with line linetype 2 color black title "Analytical 1",\
+"analytical.txt" using 1:3 with line linetype 2 color blue title "Analytical 2",\
+"analytical.txt" using 1:4 with line linetype 2 color red title "Analytical 3";
