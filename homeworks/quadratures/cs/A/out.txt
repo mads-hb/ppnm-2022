@@ -1,0 +1,5 @@
+Let's solve some test integrals
+The integral Integral<[0, 1] (Sqrt(x))> equals 0.666953909054655.
+The integral Integral<[0, 1] (1/Sqrt(x))> equals 1.99996150007805.
+The integral Integral<[0, 1] (4*Sqrt(1-x*x))> equals 3.14183457802727.
+The integral Integral<[0, 1] (Log(x)/Sqrt(x))> equals -3.99991705899915.

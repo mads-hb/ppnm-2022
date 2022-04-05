@@ -1,0 +1,12 @@
+Let's solve some test integrals and check how many recursive calls are needed.
+Using normal integration: Integral<[1, Infinity] (1/x^2)>.
+The total amount of recursive calls was 1.
+The integral Integral<[1, Infinity] (1/x^2)> equals 1.
+
+Using normal integration: Integral<[-Infinity, Infinity] (x*Exp(-x*x))>.
+The total amount of recursive calls was 1.
+The integral Integral<[-Infinity, Infinity] (x*Exp(-x*x))> equals 0.
+
+Now using scipy to integrate the same functions.
+The integral of 1/sqrt(x) is 1.0 and took 15 evaluations.
+The integral of log(x)/sqrt(x) is 0.0 and took 30 evaluations.

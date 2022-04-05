@@ -1,0 +1,20 @@
+Let's solve some test integrals and check how many recursive calls are needed.
+Using normal integration
+The total amount of recursive calls was 4285.
+The integral Integral<[0, 1] (1/Sqrt(x))> equals 1.99996150007805.
+
+Using Clenshaw-Curtis integration
+The total amount of recursive calls was 7.
+The integral Integral<[0, 1] (1/Sqrt(x))> equals 1.99999201046432.
+
+Using normal integration
+The total amount of recursive calls was 4301.
+The integral Integral<[0, 1] (Log(x)/Sqrt(x))> equals -3.99991705899915.
+
+Using Clenshaw-Curtis integration
+The total amount of recursive calls was 47.
+The integral Integral<[0, 1] (Log(x)/Sqrt(x))> equals -3.99987385646141.
+
+Now using scipy to integrate the same functions.
+The integral of 1/sqrt(x) is 1.9999999999999984 and took 231 evaluations.
+The integral of log(x)/sqrt(x) is -4.000000000000071 and took 315 evaluations.
