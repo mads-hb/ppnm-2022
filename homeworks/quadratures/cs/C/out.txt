@@ -8,5 +8,5 @@ The total amount of recursive calls was 1.
 The integral Integral<[-Infinity, Infinity] (x*Exp(-x*x))> equals 0.
 
 Now using scipy to integrate the same functions.
-The integral of 1/sqrt(x) is 1.0 and took 15 evaluations.
-The integral of log(x)/sqrt(x) is 0.0 and took 30 evaluations.
+The integral of 1/x^2 is 1.0 and took 15 evaluations.
+The integral of x*exp(-x^2) is 0.0 and took 30 evaluations.

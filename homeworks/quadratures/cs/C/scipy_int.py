@@ -13,6 +13,6 @@ res1, err1, inf1 = quad(f1, 1, np.inf, **kw)
 res2, err2, inf2 = quad(f2, -np.inf, np.inf, **kw)
 
 print("Now using scipy to integrate the same functions.")
-print(f"The integral of 1/sqrt(x) is {res1} and took {inf1['neval']} evaluations.")
-print(f"The integral of log(x)/sqrt(x) is {res2} and took {inf2['neval']} evaluations.")
+print(f"The integral of 1/x^2 is {res1} and took {inf1['neval']} evaluations.")
+print(f"The integral of x*exp(-x^2) is {res2} and took {inf2['neval']} evaluations.")
 
