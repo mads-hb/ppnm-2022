@@ -1,0 +1,12 @@
+Integrating x*y on a 0-1 square.
+Result is 0.25013128320666 and error is 0.00220272889298814
+Expected result is 0.25
+
+Integrating x*y on a -1 - 1 square.
+Result is 0.000855883306362768 and error is 0.00133477726061953
+Expected result is 0
+
+Integrating a ∫_0^π  dx/π ∫_0^π  dy/π ∫_0^π  dz/π [1-cos(x)cos(y)cos(z)]^(-1)
+Result is 1.39021945164582 and error is 0.00320322704044577
+Expected result is 1.3932039296856768591842462603255
+
