@@ -130,4 +130,76 @@ public static class MonteCarlo {
         }
 
 
+    public static (double, double) strata(Func<vector,double> f, vector a, vector b, int N, double acc=0.005, double eps=0.0005, int n_reuse=0, double mean_reuse=0){
+        int dim = a.size;
+        double V=1;
+        for (int k = 0; k < dim; k++) {
+            V *= b[k] - a[k];
+        }
+        int[] n_left = new int[dim];
+        int[] n_right = new int[dim];
+
+        double[] x = new double[dim];
+        double[] mean_left = new double[dim]; 
+        double[] mean_right = new double[dim];
+        double mean=0;
+
+        for (int k = 0; k < dim; k++){
+            mean_left[k] = 0; 
+            mean_right[k] = 0; 
+            n_left[k] = 0; 
+            n_right[k] = 0;
+        }
+        for ( int i = 0; i < N; i ++){
+            for (int k = 0; k < dim; k++){
+                var rand_d = random_generator.NextDouble();
+                x[k] = a[k]+ rand_d * (b[k] - a[k]);
+            }
+            double fx = f(x) ;
+            mean += fx ;
+            for (int k = 0; k < dim; k++){
+                if ( x[k] > ( a [k]+ b[k])/2 ) {
+                    n_right[k]++; 
+                    mean_right[k] += fx;
+                } else {
+                    n_left[k]++; 
+                    mean_left[k] += fx;
+                }
+            }
+        }
+        mean /= N;
+        for (int k = 0; k < dim; k++){ 
+            mean_left [k] /= n_left[k] ; 
+            mean_right [k] /= n_right[k] ; }
+
+        int kdiv = 0; 
+        double maxvar=0;
+        for (int k = 0; k < dim; k++){
+            double var = Abs( mean_right[k] - mean_left[k]);
+            if ( var > maxvar ){
+                maxvar = var; 
+                kdiv=k;
+            }
+        }
+        double integ = (mean*N+mean_reuse * n_reuse) / (N + n_reuse)*V;
+        double error = Abs(mean_reuse - mean) * V;
+        double tol = acc + Abs(integ) * eps;
+        if ( error < tol) {
+            return (integ, error);
+        }
+        double[] a2 = new double[dim]; 
+        double[] b2 = new double[dim];
+        for (int k = 0; k < dim; k++){
+            a2[k] = a[k];
+        }
+        for (int k = 0; k < dim; k++){
+            b2[k] = b[k];
+        }
+        a2[kdiv] = (a[kdiv] + b[kdiv]) / 2; 
+        b2[kdiv] = (a[kdiv] + b[kdiv]) / 2 ;
+        (var integ_left, var err_left) = strata(f, a, b2, N, acc:acc/Sqrt(2), eps:eps, n_reuse:n_left[kdiv], mean_reuse:mean_left[kdiv]);
+        (var integ_right, var err_right) = strata(f, a2, b, N,  acc:acc/Sqrt(2), eps:eps, n_reuse:n_right[kdiv], mean_reuse:mean_right[kdiv]);
+        return (integ_left+integ_right, err_left+err_right);
+    }
+
 }

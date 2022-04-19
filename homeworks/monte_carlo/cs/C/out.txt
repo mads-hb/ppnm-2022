@@ -1,0 +1,13 @@
+Testing recursive stratified sampling.
+Integrating x*y on a 0-1 square.
+Result is 0.249577283114787 and error is 0.000549284310837825
+Expected result is 0.25
+
+Integrating x*y on a -1 - 1 square.
+Result is 0.00069979829898158 and error is 0.00069979829898158
+Expected result is 0
+
+Integrating a ∫_0^π  dx/π ∫_0^π  dy/π ∫_0^π  dz/π [1-cos(x)cos(y)cos(z)]^(-1)
+Result is 1.39049518608086 and error is 0.0044101471496109
+Expected result is 1.3932039296856768591842462603255
+
