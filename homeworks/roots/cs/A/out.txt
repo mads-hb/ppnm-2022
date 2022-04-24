@@ -1,0 +1,15 @@
+------------------------------------------------
+Testing the implementation on a few examples:
+
+Finding extremum of f(x) = log(x)*x^2
+This is done by searching for roots of its gradient f'(x) = 2*x*log(x) + x
+This extremum is found at:
+	x = 0.606530657152281
+	Analytical result is 0.6065
+
+Finding extremum of Rosenbrock's valley function f(x,y) = (1-x)^2 + 100(y-x^2)^2
+This is done by searching for roots of its gradient f'(x,y) = [2*(200*x^3 - 200*x*y + x - 1), 200*(y - x^2)]
+This extremum is found at:
+	x = 0.999999999270854, y = 0.999999998523878
+	Analytical result is (1,1)
+------------------------------------------------
