@@ -1,0 +1,6 @@
+------------------------------------------------
+Testing the implementation on a few examples:
+The number of iterations was 4949.
+This extremum is found at:
+m=125.9722, gamma=2.0868, A=9.8786.
+------------------------------------------------

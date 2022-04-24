@@ -1,0 +1,21 @@
+------------------------------------------------
+Testing the implementation on a few examples:
+
+Finding extremum of Rosenbrock's valley function f(x,y) = (1-x)^2 + 100(y-x^2)^2
+The number of iterations was 282.
+This extremum is found at:
+	x = 0.999699649906349, y = 0.999398890022873
+	Analytical result is (1,1)
+
+Finding extremum of Himmelblau's function f(x,y) = f(x,y)=(x^2+y-11)^2 + (x+y^2-7)^2
+This function has several local minima. Consider starting at x0={0,0}
+The number of iterations was 13.
+This extremum is found at:
+	x = 2.99999956616255, y = 1.9999997551984
+	Analytical result is (3,2)
+Starting at x0={-2,3}
+The number of iterations was 56.
+This extremum is found at:
+	x = -2.80511857706786, y = 3.13131202620035
+	Analytical result is approx (-2.8, 3.1)
+------------------------------------------------
