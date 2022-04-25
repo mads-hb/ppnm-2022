@@ -85,4 +85,110 @@ public static class Minimisation{
         return grad;
     }
 
+    public static vector SimplexDownhill(Func<vector,double> f, vector x0, double scale, double eps=1e-12){
+        int n = x0.size;
+        // Generate n+1 test points
+        vector[] test_points = get_test_points(x0, n, scale);
+        int low_ix, high_ix;
+        double[] f_values;
+        vector reflection, expansion, contraction;
+        do {
+            iters ++;
+            // Get highest and lowest value
+
+            (high_ix, low_ix, f_values) = get_high_low_index(f, test_points);
+            // Get position of centroid
+            var centroid = get_centroid(test_points, high_ix);
+            
+            // reflect
+            reflection = centroid + (centroid - test_points[high_ix]);
+
+            if (f(reflection) < f_values[low_ix]){
+                // expand
+                expansion = centroid + 2*(centroid - test_points[high_ix]);
+
+                if (f(expansion) < f(reflection)){
+                    test_points[high_ix] = expansion;
+                } else {
+                    test_points[high_ix] = reflection;
+                }
+
+            } else {
+                if (f(reflection) < f_values[high_ix]){
+                    test_points[high_ix] = reflection;
+                } else {
+                    contraction = centroid + 0.5 * (test_points[high_ix] - centroid);
+                    if (f(contraction) < f_values[high_ix]){
+                        test_points[high_ix] = contraction;
+                    } else {
+                        // reduce
+                        for (int k = 0; k < n+1; k++){
+                            if (k != low_ix){
+                                test_points[k] = 0.5*(test_points[k] + test_points[low_ix]);
+                            }
+                        }
+                    }
+                }
+            }
+
+        } while (eps < std(f_values));
+        return test_points[low_ix];
+    }
+
+    private static vector[] get_test_points(vector x0, int n, double scale){
+        vector[] test_points = new vector[n+1];
+        test_points[n] = x0.copy();
+        for (int i = 0; i < n; i++){
+            x0[i] += scale;
+            test_points[i] = x0.copy();
+            x0[i] -= scale;
+        }
+        return test_points;
+    }
+
+    private static (int, int, double[]) get_high_low_index(Func<vector,double> f, vector[] points){
+        double f_high=Double.NegativeInfinity, f_low=Double.PositiveInfinity;
+        int high=0, low=0;
+        double[] fvalues = new double[points.Length];
+        for (int i = 0;  i < points.Length; i++){
+            double fval = f(points[i]);
+            if (fval > f_high){
+                high = i;
+                f_high = fval;
+            } else if (fval < f_low){
+                low = i;
+                f_low = fval;
+            }
+            fvalues[i] = f(points[i]);
+        }
+        // Console.WriteLine($"fhigh={f_high}, flow={f_low}");
+        return (high, low, fvalues);
+    }
+
+    private static vector get_centroid(vector[] points, int highest_ix){
+        // ignore highest when computing centroid
+        vector res = new vector(points[0].size);
+        for (int i = 0; i < points.Length; i++){
+            if (i != highest_ix){
+                res += points[i];
+            }
+        }
+        res /= (points.Length - 1);
+        return res;
+    }
+
+    private static double std(double[] arr){
+        int n = arr.Length;
+        double avg = 0;
+        for (int i = 0; i < n; i++) {
+            avg += arr[i];
+        }
+        avg /= n;
+        double sum_squares = 0;
+        for (int i = 0; i < n; i++) {
+            sum_squares += Pow(arr[i] - avg, 2);
+        }
+        return Sqrt(sum_squares/(n-1));
+    }
+
 }

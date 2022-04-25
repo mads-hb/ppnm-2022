@@ -1,0 +1,13 @@
+------------------------------------------------
+
+Finding extremum of Rosenbrock's valley function f(x,y) = (1-x)^2 + 100(y-x^2)^2
+This extremum is found at:
+	x = 1.00000000635073, y = 1.00000001243411
+	Analytical result is (1,1)
+
+Finding extremum of Himmelblau's function f(x,y) = f(x,y)=(x^2+y-11)^2 + (x+y^2-7)^2
+This function has several local minima. Consider starting at x0={0,0}
+This extremum is found at:
+	x = 3.00000000225701, y = 1.99999999890678
+	Analytical result is (3,2)
+------------------------------------------------
