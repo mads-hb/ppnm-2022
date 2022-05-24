@@ -1,0 +1,12 @@
+set terminal png
+set output "r_convergence.png"
+set multiplot
+set xlabel "$r_{max}$"
+set ylabel "$E$ [Hartree]"
+
+plot [0:15][-1:1] "r_convergence.txt" index 0 using 1:2 with points title "Estimate"
+
+set origin 0,-8
+set xlabel "$r_{min}$"
+set ylabel "$E$ [Hartree]"
+plot [][-0.9:-0.3] "r_convergence.txt" index 1 using 1:2 with points title "Estimate"

@@ -2,6 +2,7 @@ public class GenericList<T>{
     public T[] data;
     public int size=0, capacity=8;
     public GenericList(){ data = new T[capacity]; }
+
     public void push(T item){ /* add item to list */
         if(size==capacity){
             T[] newdata = new T[capacity*=2];

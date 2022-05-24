@@ -1,0 +1,1 @@
+The estimate energy is -0.499975034674087 Hartree and analytically we expect 0.5 Hartree.

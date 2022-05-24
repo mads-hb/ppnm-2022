@@ -131,7 +131,7 @@ public static class ODE {
 
     public static vector 
         driver_naive(Func<double,vector,vector> f, double a, vector ya, double b, double h=0.01, double acc=0.01, double eps=0.01){
-        if(a>b) throw new Exception("driver: a>b");
+        // if(a>b) throw new Exception("driver: a>b");
         double x=a; vector y=ya;
         do {
             if(x>=b) return y; /* job done */

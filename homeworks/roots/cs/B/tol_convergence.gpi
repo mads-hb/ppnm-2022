@@ -1,0 +1,12 @@
+set terminal png
+set output "tol_convergence.png"
+set multiplot
+set xlabel "Absolute tol"
+set ylabel "$E$ [Hartree]"
+
+plot "tol_convergence.txt" index 0 using 1:2 with points title "Estimate"
+
+set origin 0,-8
+set xlabel "Relative tol"
+set ylabel "$E$ [Hartree]"
+plot "tol_convergence.txt" index 1 using 1:2 with points title "Estimate"
