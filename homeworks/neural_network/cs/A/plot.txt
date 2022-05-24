@@ -1,0 +1,15 @@
+set terminal png
+set output "exerciseAPlot.png"
+
+set key out;
+set ticks out;
+set pointsize 1;
+set width 8;
+
+set title "Test NN";
+set xlabel "$x$";
+set ylabel "$$";
+
+plot \
+"tabulated.txt" using 1:2 with points color black title "Tabulated points",\
+"fit.txt" using 1:2 with line linetype 1 color blue title "NeuralNet";

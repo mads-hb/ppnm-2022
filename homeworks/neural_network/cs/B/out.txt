@@ -1,0 +1,4 @@
+------------------------------------------------
+Testing the NeuralNetwork implementation on the function:
+Cos(5*x-1)*Exp(-x*x). Plot is shown in file exerciseAplot.png
+------------------------------------------------
