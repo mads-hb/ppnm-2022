@@ -1,0 +1,13 @@
+set terminal png;
+set output "img/eig_spectrum.png";
+set xlabel "$x$";
+set ylabel "$y$";
+set tics out;
+set title "Eigenvalue Spectrum";
+set key left top;
+set ylabel "Eigenvalue"
+set xlabel "$n$'th eigenvalue"
+
+
+plot "data/eig_spectrum.txt" using 1:2 with points title "Rank-1 Update", \
+"data/eig_spectrum.txt" using 1:3 with points pointtype 2 title "Jacobi Routine";

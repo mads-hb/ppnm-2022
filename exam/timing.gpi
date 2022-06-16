@@ -1,0 +1,17 @@
+set terminal png;
+set output "img/timing.png";
+set xlabel "$x$";
+set ylabel "$y$";
+set tics out;
+set title "Time complexity";
+set key left top;
+set ylabel "Time [s]"
+set xlabel "Size of matrix, $n$"
+
+
+
+
+plot "data/timing.txt" using 1:2 with points pointtype 1 color black title "Rank-1 Update", \
+"data/fitting.txt" using 1:2 with lines color black title "Rank-1 fit square fit", \
+"data/timing.txt" using 1:3 with points pointtype 1 color red title "Jacobi Routine", \
+"data/fitting.txt" using 1:3 with lines color red title "Jacobi cubic fit";
