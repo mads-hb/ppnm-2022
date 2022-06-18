@@ -8,7 +8,7 @@ $$
 where $\mathbf{D}$ is a diagonal matrix, $\mathbf{u}$ is a column vector, and $\sigma$ is some real number. The problem of finding eigenvalues of $\mathbf{A}$ can be solved in $O(n^2)$ time.
 
 ## Build
-All source files for the project are found in the `src` directory. The directory `src/lib` contains all the source files that are compiled to a dynamic link library (DLL) and the file `src/main.cs` is the main executable. This obviously must be linked with the dynamic library. Building the project and running it can be done with the `make` command.
+All source files for the project are found in the `src` directory. The directory `src/lib` contains all the source files that are compiled to a dynamic link library (DLL) and the file `src/main.cs` is the main executable. This obviously must be linked with the dynamic library. Building the project, running it, and compiling a report can be done with the `make` command.
 
 ## Description
 In this project I have implemented an algorithm for finding the eigenvalues of a matrix on the form:
